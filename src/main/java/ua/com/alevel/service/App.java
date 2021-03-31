@@ -1,10 +1,7 @@
 package ua.com.alevel.service;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import ua.com.alevel.dao.UserDao;
+import ua.com.alevel.daoImpl.UserDao;
 import ua.com.alevel.model.User;
-import ua.com.alevel.util.HibernateSessionFactoryUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -14,9 +11,9 @@ import java.util.List;
 public class App {
 
     public static void main(String[] args) {
-        EntityManager entityManager = EntityManagerFactoryUtil.getEntityManager();
 
-        EntityTransaction transaction = entityManager.getTransaction();
+        UserDao userDao = new UserDao();
+
         List<User> userFollowersList = new ArrayList<>();
         List<User> userSubscribersList = new ArrayList<>();
         List<User> userFollowersList1 = new ArrayList<>();
@@ -30,7 +27,7 @@ public class App {
         user1.setModerator(true);
         user1.setFollowers(userFollowersList);
         user1.setSubscriptions(userSubscribersList);
-        UserDao.userCreation(user1);
+        userDao.create(user1);
         userSubscribersList1.add(user1);
 
         User user = new User();
@@ -44,7 +41,7 @@ public class App {
         user.setSubscriptions(userSubscribersList1);
 
 
-        UserDao.userCreation(user);
+        userDao.create(user);
 //        entityManager.persist(user);
 //        entityManager.flush();
     }
