@@ -15,7 +15,7 @@
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/Hibernate"/>
             <property name="hibernate.connection.username" value="postgres"/>
             <property name="hibernate.connection.password" value="goldsilver12"/>
-
+<!--            <property name="hibernate.enable_lazy_load_no_trans" value="false"/>-->
         </properties>
     </persistence-unit>
 </persistence>

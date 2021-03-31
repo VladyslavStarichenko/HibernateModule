@@ -46,6 +46,15 @@ public class User {
     )
     private List<User> subscriptions = new ArrayList<>();
 
+    public User(String fullName, String login, String email, int age , Boolean isAuthor, Boolean isModerator) {
+        this.fullName = fullName;
+        this.login = login;
+        this.email = email;
+        this.age = age;
+        this.isAuthor = isAuthor;
+        this.isModerator = isModerator;
+    }
+
     @Override
     public String toString() {
         return "User{" +
